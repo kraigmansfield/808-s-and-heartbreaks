@@ -10,6 +10,26 @@ const API = {
     getUserData:id=>{
         return fetch(`http://localhost:3000/api/users/${id}`)
         .then(res=>res.json())
+    },
+
+    login:userObj=>{
+        return fetch(`http://localhost:3000/api/users/login`,{ 
+        method: "POST",
+        body:JSON.stringify(userObj),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(res=>res.json())
+    },
+
+    signup:userObj=>{
+        return fetch(`http://localhost:3000/api/users`,{ 
+        method: "POST",
+        body:JSON.stringify(userObj),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(res=>res.json())
     }
 }
 export default API
