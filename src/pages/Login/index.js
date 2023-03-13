@@ -1,14 +1,18 @@
 import React, {useState} from 'react'
 import "./style.css"
 import API from "../../utils/API.js";
+import App from '../../App';
 
-export const Login = (props) => {
+export const Login = () => {
     const [loginEmail,setLoginEmail] = useState("")
     const [loginPassword,setLoginPassword] = useState("")
     const [signupEmail,setSignupEmail] = useState("")
     const [signupUsername,setSignupUsername] = useState("")
     const [signupPassword,setSignupPassword] = useState("")
     const [signupAge,setSignupAge] = useState("")
+    const [isLoggedIn,setIsLoggedIn] = useState("");
+    const [token,setToken] = useState("");
+    const [userId,setUserId] = useState("");
 
     const handleInputChange = e => {
         const {name,value} = e.target;
@@ -51,9 +55,9 @@ export const Login = (props) => {
       API.login(userObj).then(data=>{
         console.log(data);
         if(data.token){
-        props.setToken(data.token);
-        props.setIsLoggedIn(true);
-        props.setUserId(data.user.id)
+        setToken(data.token);
+        setIsLoggedIn(true);
+        setUserId(data.user.id)
         }
         setLoginEmail("");
         setLoginPassword("");
@@ -72,9 +76,9 @@ export const Login = (props) => {
       API.signup(userObj).then(data=>{
         console.log(data);
         if(data.token){
-        props.setToken(data.token);
-        props.setIsLoggedIn(true);
-        props.setUserId(data.user.id)
+        setToken(data.token);
+        setIsLoggedIn(true);
+        setUserId(data.user.id)
         }
         setSignupEmail("");
         setSignupUsername("");

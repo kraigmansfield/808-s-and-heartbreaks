@@ -4,13 +4,11 @@ import Home from "./pages/Home";
 import React, {useState} from 'react';
 import Profile from './pages/Profile';
 import Login from '../src/pages/Login/index'
-// import {Login} from "../src/Login";
-// import {Register} from "../src/Register";
 
 
 function App() {
   const [Token,setToken] = useState("");
-  const [UserId,setUserId] = useState(0);
+  const [userId,setUserId] = useState(0);
   const [isLoggedIn,setIsLoggedIn] = useState(false);
 
   
@@ -43,7 +41,7 @@ function App() {
   return (
       
     <BrowserRouter>
-    <Navbar/>
+    <Navbar isLoggedIn={isLoggedIn} userId={userId}/>
 
       <Routes>
         <Route path="/" element={<Home/>} />
