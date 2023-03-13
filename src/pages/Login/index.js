@@ -1,14 +1,22 @@
 import React, {useState} from 'react'
 import "./style.css"
 import API from "../../utils/API.js";
+import App from '../../App';
+import { Link } from "react-router-dom"
+import ProBuilder from "../../components/ProfileBuilder/profile"
+import Profile from "../../components/HomeContent"
 
-export const Login = (props) => {
+
+export const Login = () => {
     const [loginEmail,setLoginEmail] = useState("")
     const [loginPassword,setLoginPassword] = useState("")
     const [signupEmail,setSignupEmail] = useState("")
     const [signupUsername,setSignupUsername] = useState("")
     const [signupPassword,setSignupPassword] = useState("")
     const [signupAge,setSignupAge] = useState("")
+    const [isLoggedIn,setIsLoggedIn] = useState("");
+    const [token,setToken] = useState("");
+    const [userId,setUserId] = useState("");
 
     const handleInputChange = e => {
         const {name,value} = e.target;
@@ -51,9 +59,9 @@ export const Login = (props) => {
       API.login(userObj).then(data=>{
         console.log(data);
         if(data.token){
-        props.setToken(data.token);
-        props.setIsLoggedIn(true);
-        props.setUserId(data.user.id)
+        setToken(data.token);
+        setIsLoggedIn(true);
+        setUserId(data.user.id)
         }
         setLoginEmail("");
         setLoginPassword("");
@@ -72,9 +80,9 @@ export const Login = (props) => {
       API.signup(userObj).then(data=>{
         console.log(data);
         if(data.token){
-        props.setToken(data.token);
-        props.setIsLoggedIn(true);
-        props.setUserId(data.user.id)
+        setToken(data.token);
+        setIsLoggedIn(true);
+        setUserId(data.user.id)
         }
         setSignupEmail("");
         setSignupUsername("");
@@ -88,14 +96,18 @@ export const Login = (props) => {
        <form onSubmit={handleLoginSubmit}>
         <input name="loginEmail" value={loginEmail} onChange={handleInputChange} placeholder="email"/>
         <input name="loginPassword" value={loginPassword} onChange={handleInputChange} placeholder="password" type="password"/>
-        <button>Login</button>
+        <Link to ="Profile">
+          <button>login</button>
+        </Link>
        </form>
        <form onSubmit={handleSignupSubmit}>
         <input name="signupEmail" value={signupEmail} onChange={handleInputChange} placeholder="email"/>
         <input name="signupUsername" value={signupUsername} onChange={handleInputChange} placeholder="username"/>
         <input name="signupPassword" value={signupPassword} onChange={handleInputChange} placeholder="password" type="password"/>
         <input name="signupAge" value={signupAge} onChange={handleInputChange} placeholder="age"/>
-        <button>Signup</button>
+        <Link to ="/ProBuilder">
+          <button>Submit</button>
+        </Link>
        </form>
     </div>
   )

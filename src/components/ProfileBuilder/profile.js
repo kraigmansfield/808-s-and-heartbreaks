@@ -1,13 +1,10 @@
 import React from 'react';
 
-
-
-
-export default function Profile() {
+export default function ProBuilder() {
     return(
         <div classname="container">
-        <h1>Please select genres you like!</h1>
-            <div classname="liked-container">
+        <h2>Please select genres you like!</h2>
+            <div className="liked-container">
                 <option value ="Pop"></option>
                 <option value ="Hip-Hop"></option>
                 <option value ="Rock"></option>
@@ -15,8 +12,8 @@ export default function Profile() {
                 <option value ="R&B"></option>
                 <option value ="Funk"></option>
             </div>
-        <h1>Please select genres you dislike!</h1>
-        <div classname="disliked-container">
+        <h2>Please select genres you dislike!</h2>
+        <div className="disliked-container">
         <option value ="Pop"></option>
                 <option value ="Hip-Hop"></option>
                 <option value ="Rock"></option>
