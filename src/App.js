@@ -2,6 +2,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from "./pages/Home";
 import React, {useState} from 'react'
+import Profile from './pages/Profile';
 // import dotenv from 'dotenv';
 // import Login from '.Login';
 // import {Login} from "../src/Login";
@@ -40,7 +41,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<h1>Login</h1>} />
-        <Route path="/profile/:id" element={<h1>User Profile Page</h1>} />
+        <Route path="/profile/:id" element={<h1><Profile/></h1>} />
         <Route path="*" element={<h1>404 page not found</h1>} />
 
       </Routes>
