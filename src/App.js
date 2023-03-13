@@ -1,15 +1,22 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from "./pages/Home";
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import Profile from './pages/Profile';
-// import dotenv from 'dotenv';
-// import Login from '.Login';
+import Login from '../src/pages/Login/index'
 // import {Login} from "../src/Login";
 // import {Register} from "../src/Register";
 
 
 function App() {
+  const [Token,setToken] = useState("");
+  const [UserId,setUserId] = useState(0);
+  const [isLoggedIn,setIsLoggedIn] = useState(false);
+
+  
+
+
+
   const [city,setCity] = useState('');
   React.useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -40,7 +47,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/login" element={<h1>Login</h1>} />
+        <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={isLoggedIn}/ >} />
         <Route path="/profile/:id" element={<h1><Profile/></h1>} />
         <Route path="*" element={<h1>404 page not found</h1>} />
 
