@@ -1,0 +1,7 @@
+.HomeContent {
+    border: 1px solid black;
+    border-radius: 10px 0;
+    box-shadow: 10px 10px 20px black;
+    margin: 10px auto;
+    width: 80%;
+}
