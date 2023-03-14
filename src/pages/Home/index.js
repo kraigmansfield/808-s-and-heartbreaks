@@ -4,7 +4,7 @@ import API from "../../utils/API.js";
 import Profile from '../Profile';
 
 export const Home = (props) => {
-    const [genres, setGenres] = useState([])
+    const [setGenres] = useState([])
     useEffect(()=>{
         API.getAllGenres().then(data => {
             setGenres(data)
