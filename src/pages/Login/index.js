@@ -1,10 +1,7 @@
 import React, {useState} from 'react'
 import "./style.css"
 import API from "../../utils/API.js";
-import App from '../../App';
 import { Link } from "react-router-dom"
-import ProBuilder from "../../components/ProfileBuilder/profile"
-import Profile from "../../components/HomeContent"
 
 
 export const Login = () => {
@@ -14,9 +11,9 @@ export const Login = () => {
     const [signupUsername,setSignupUsername] = useState("")
     const [signupPassword,setSignupPassword] = useState("")
     const [signupAge,setSignupAge] = useState("")
-    const [isLoggedIn,setIsLoggedIn] = useState("");
-    const [token,setToken] = useState("");
-    const [userId,setUserId] = useState("");
+    const [setIsLoggedIn] = useState("");
+    const [setToken] = useState("");
+    const [setUserId] = useState("");
 
     const handleInputChange = e => {
         const {name,value} = e.target;
