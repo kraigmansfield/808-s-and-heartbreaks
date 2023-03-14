@@ -1,7 +1,6 @@
 {
   "name": "808-s-and-heartbreaks",
   "version": "0.1.0",
-  "homepage": "/",
   "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
