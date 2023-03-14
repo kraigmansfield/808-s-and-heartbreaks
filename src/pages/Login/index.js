@@ -4,6 +4,7 @@ import API from "../../utils/API.js";
 import { Link } from "react-router-dom"
 
 
+
 export const Login = () => {
     const [loginEmail,setLoginEmail] = useState("")
     const [loginPassword,setLoginPassword] = useState("")
@@ -89,7 +90,9 @@ export const Login = () => {
       })
     }
   return (
+  <div>
     <div className='Login'>
+        <h2>Login</h2>
        <form onSubmit={handleLoginSubmit}>
         <input name="loginEmail" value={loginEmail} onChange={handleInputChange} placeholder="email"/>
         <input name="loginPassword" value={loginPassword} onChange={handleInputChange} placeholder="password" type="password"/>
@@ -97,7 +100,10 @@ export const Login = () => {
           <button>login</button>
         </Link>
        </form>
-       <form onSubmit={handleSignupSubmit}>
+    </div>
+    <div className= "signUp">
+        <h2>Sign Up </h2>
+      <form onSubmit={handleSignupSubmit}>
         <input name="signupEmail" value={signupEmail} onChange={handleInputChange} placeholder="email"/>
         <input name="signupUsername" value={signupUsername} onChange={handleInputChange} placeholder="username"/>
         <input name="signupPassword" value={signupPassword} onChange={handleInputChange} placeholder="password" type="password"/>
@@ -107,6 +113,7 @@ export const Login = () => {
         </Link>
        </form>
     </div>
+  </div>
   )
 }
 
