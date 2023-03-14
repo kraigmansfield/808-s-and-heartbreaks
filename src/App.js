@@ -12,12 +12,15 @@ function App() {
   const [Token,setToken] = useState("");
   const [userId,setUserId] = useState(0);
   const [isLoggedIn,setIsLoggedIn] = useState(localStorage.access ? true : false);
+  //Below is previous implementation
+  // const [isLoggedIn,setIsLoggedIn] = useState(false);
+  
 
   
 
 
 
-  const [city,setCity] = useState('');
+  const [setCity] = useState('');
   React.useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
 
@@ -46,9 +49,9 @@ function App() {
     <Navbar isLoggedIn={isLoggedIn} userId={userId}/>
 
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={isLoggedIn}/>}/>
-        <Route path="/profile/:id" element={<Profile setToken={setToken} setUserId={setUserId} setIsLoggedIn={isLoggedIn}/>}/>
+        <Route path="/" element={<Home isLoggedIn={isLoggedIn} Token={Token}/>} />
+        <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn}/>}/>
+        <Route path="/profile/:id" element={<Profile Token={Token} userId={userId}/>}/>
         {/* <Route path="/signup" element={<Signup/>}/> */}
         <Route path="/ProBuilder" element={<h1><ProBuilder/></h1>}/>
         <Route path="*" element={<h1>404 page not found</h1>} />
