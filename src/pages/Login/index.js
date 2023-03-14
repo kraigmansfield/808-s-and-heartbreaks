@@ -2,6 +2,10 @@ import React, {useState} from 'react'
 import "./style.css"
 import API from "../../utils/API.js";
 import App from '../../App';
+import { Link } from "react-router-dom"
+import ProBuilder from "../../components/ProfileBuilder/profile"
+import Profile from "../../components/HomeContent"
+
 
 export const Login = () => {
     const [loginEmail,setLoginEmail] = useState("")
@@ -92,14 +96,18 @@ export const Login = () => {
        <form onSubmit={handleLoginSubmit}>
         <input name="loginEmail" value={loginEmail} onChange={handleInputChange} placeholder="email"/>
         <input name="loginPassword" value={loginPassword} onChange={handleInputChange} placeholder="password" type="password"/>
-        <button>Login</button>
+        <Link to ="Profile">
+          <button>login</button>
+        </Link>
        </form>
        <form onSubmit={handleSignupSubmit}>
         <input name="signupEmail" value={signupEmail} onChange={handleInputChange} placeholder="email"/>
         <input name="signupUsername" value={signupUsername} onChange={handleInputChange} placeholder="username"/>
         <input name="signupPassword" value={signupPassword} onChange={handleInputChange} placeholder="password" type="password"/>
         <input name="signupAge" value={signupAge} onChange={handleInputChange} placeholder="age"/>
-        <button>Signup</button>
+        <Link to ="/ProBuilder">
+          <button>Submit</button>
+        </Link>
        </form>
     </div>
   )

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import React, {useState} from 'react';
 import Profile from './pages/Profile';
 import Login from '../src/pages/Login/index'
+import ProBuilder from './components/ProfileBuilder/profile';
 
 
 function App() {
@@ -45,8 +46,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={isLoggedIn}/ >} />
-        <Route path="/profile/:id" element={<h1><Profile/></h1>} />
+        <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={isLoggedIn}/>}/>
+        <Route path="/profile/:id" element={<h1><Profile/></h1>}/>
+        <Route path="/ProBuilder" element={<h1><ProBuilder/></h1>}/>
         <Route path="*" element={<h1>404 page not found</h1>} />
 
       </Routes>
