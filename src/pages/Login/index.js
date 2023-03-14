@@ -1,10 +1,7 @@
 import React, {useState} from 'react'
 import "./style.css"
 import API from "../../utils/API.js";
-import App from '../../App';
 import { Link } from "react-router-dom"
-import ProBuilder from "../../components/ProfileBuilder/profile"
-import Profile from "../../components/HomeContent"
 
 
 export const Login = () => {

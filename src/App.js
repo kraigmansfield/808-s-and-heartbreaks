@@ -8,9 +8,10 @@ import ProBuilder from './components/ProfileBuilder/profile';
 
 
 function App() {
+
   const [Token,setToken] = useState("");
   const [userId,setUserId] = useState(0);
-  const [isLoggedIn,setIsLoggedIn] = useState(false);
+  const [isLoggedIn,setIsLoggedIn] = useState(localStorage.access ? true : false);
 
   
 
@@ -47,7 +48,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={isLoggedIn}/>}/>
-        <Route path="/profile/:id" element={<h1><Profile/></h1>}/>
+        <Route path="/profile/:id" element={<Profile setToken={setToken} setUserId={setUserId} setIsLoggedIn={isLoggedIn}/>}/>
+        {/* <Route path="/signup" element={<Signup/>}/> */}
         <Route path="/ProBuilder" element={<h1><ProBuilder/></h1>}/>
         <Route path="*" element={<h1>404 page not found</h1>} />
 
