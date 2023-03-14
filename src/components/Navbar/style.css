@@ -1,6 +1,6 @@
 .Navbar {
     display: flex;
-    background-color: salmon;
+    background-color: rgba(145, 121, 193, 0.476);
     justify-content: space-around;
 
 }
