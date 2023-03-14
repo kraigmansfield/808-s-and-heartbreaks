@@ -30,6 +30,12 @@ const API = {
             "Content-Type":"application/json"
         }
     }).then(res=>res.json())
-    }
+    }, 
+
+    // spotifylogin:
+
+    // playlist:placeholder => {
+    //     return fetch("http://localhost:3000/api/spotify/profile")
+    // }
 }
 export default API
