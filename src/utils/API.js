@@ -3,17 +3,17 @@
 const API = {
 //gets all genres and they appear in the console (verified)
     getAllGenres : ()=> {
-        return fetch(`http://localhost:3000/api/genres`)
+        return fetch(`https://be-808.herokuapp.com/api/genres`)
         .then(res=>res.json())
     },
 
     getUserData:id=>{
-        return fetch(`http://localhost:3000/api/users/${id}`)
+        return fetch(`https://be-808.herokuapp.com/api/users/${id}`)
         .then(res=>res.json())
     },
 
     login:userObj=>{
-        return fetch(`http://localhost:3000/api/users/login`,{ 
+        return fetch(`https://be-808.herokuapp.com/api/users/login`,{ 
         method: "POST",
         body:JSON.stringify(userObj),
         headers:{
@@ -23,7 +23,7 @@ const API = {
     },
 
     signup:userObj=>{
-        return fetch(`http://localhost:3000/api/users`,{ 
+        return fetch(`https://be-808.herokuapp.com/api/users`,{ 
         method: "POST",
         body:JSON.stringify(userObj),
         headers:{

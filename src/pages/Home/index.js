@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import HomeContent from '../../components/HomeContent';
 import "./style.css"
 import API from "../../utils/API.js";
+import Profile from '../Profile';
 
 
-export const Home = () => {
-    const [genres, setGenres] = useState([])
+export const Home = (props) => {
+    const [setGenres] = useState([])
+
     useEffect(()=>{
         API.getAllGenres().then(data => {
             setGenres(data)
@@ -15,6 +16,7 @@ export const Home = () => {
 
   return (
     <div className='Home'>
+      {props.isLoggedIn&&<Profile/>}
         <h1>Find your musical match</h1>
 
 

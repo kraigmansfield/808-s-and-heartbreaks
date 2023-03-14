@@ -2,10 +2,10 @@ import React from "react";
 import "./style.css";
 import API from "../../utils/API";
 
-const HomeContent = (props) => {
+const HomeContent = () => {
     return (
         <div className="HomeContent">
-            <h3>{props.genres.id} played by {props.users.username}</h3>
+            <h3>{API.genres.id} played by {API.users.username}</h3>
         </div>
     )
 }
