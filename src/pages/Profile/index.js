@@ -61,7 +61,7 @@ export const Profile = ({userId}) => {
         <h1>{user.username} profile!</h1>
         <h2>{user.username}'s' Genres!</h2>
        {/* TODO: Add last played genre type by user || title: spotify song/genre, user*/}
-        {user?.LikedGenre?.map(genre=><HomeContent key={genre.id} title={user.name}/>)} 
+        {/* {user?.LikedGenre?.map(genre=><HomeContent key={genre.id} title={user.name}/>)}  */}
         {/* Here we want to map over our spotify data for recently played songs? */}
         </div>
       ) : <h2> Loading...</h2>}
