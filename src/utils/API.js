@@ -20,9 +20,8 @@ const API = {
     },
 
     getUserData: id => {
-
         // return fetch(`https://be-808.herokuapp.com/api/users/${id}`)
-        return fetch(`https://localhost:3001/api/users/${id}`, {
+        return fetch(`http://localhost:3001/api/users/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -32,10 +31,7 @@ const API = {
     },
 
     getAllData: () => {
-
-
-
-        return fetch(`${baseUrl}/api/users/${id}`, {
+        return fetch(`${baseUrl}/api/users/`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -59,8 +55,6 @@ const API = {
 
 
     signup: (userObj) => {
-
-
         return fetch(`${baseUrl}/api/users`, {
             method: "POST",
             body: JSON.stringify(userObj),
@@ -72,7 +66,7 @@ const API = {
 
     isValidToken: (token) => {
         return fetch(`${baseUrl}/api/users/isValidToken`, {
-            method: "GET",
+            method:"GET",
             headers: {
                 "Content-Type": "application/json",
                 "authorization": `Bearer ${token}`

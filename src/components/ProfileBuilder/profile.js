@@ -87,9 +87,9 @@ export default function ProBuilder({userId}) {
   //       fetch request for adding disliked genres
       
     };
-}
 
-    return (
+
+  return(
         <div>
   <div className="container">
     <form onSubmit={handleSubmit}>
@@ -160,5 +160,4 @@ export default function ProBuilder({userId}) {
 
 </div>
 )
-
-
+}
