@@ -4,11 +4,13 @@ const baseUrl = "http://localhost:3001"
 const API = {
 //gets all genres and they appear in the console (verified)
     getAllGenres : ()=> {
+
         return fetch(`${baseUrl}/api/genres`)
         .then(res=>res.json())
     },
 
     getUserData:id=>{
+
         return fetch(`${baseUrl}/api/users/${id}`)
         .then(res=>res.json())
     },
@@ -24,6 +26,7 @@ const API = {
     },
 
     signup:userObj=>{
+
         return fetch(`${baseUrl}/api/users`,{ 
         method: "POST",
         body:JSON.stringify(userObj),
