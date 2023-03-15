@@ -67,7 +67,6 @@ function App() {
     <Navbar isLoggedIn={isLoggedIn} userId={userId}/>
 
       <Routes>
-
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={isLoggedIn}/>}/>
         <Route path="/profile" element={<Profile userId={userId}/>}/>

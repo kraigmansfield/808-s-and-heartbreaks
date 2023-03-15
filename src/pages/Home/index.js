@@ -4,15 +4,16 @@ import API from "../../utils/API.js";
 import Profile from '../Profile';
 
 
-export const Home = (props) => {
-    const [setGenres] = useState([])
-
+const Home = (props) => {
+    const [genres,setGenres] = useState([])
+    const [users,setUsers] = useState([])
+    
     useEffect(()=>{
         API.getAllGenres().then(data => {
             setGenres(data)
         })
     })
-    const [setUsers] = useState([])
+    
     useEffect(() => {
       API.getAllData().then(data => {
           setUsers(data)
@@ -84,4 +85,4 @@ function UserList() {
 
 
 
-export default [Home, UserList];
+export default Home;
