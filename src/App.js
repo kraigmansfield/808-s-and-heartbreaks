@@ -1,16 +1,40 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from "./pages/Home";
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import Profile from './pages/Profile';
 import Login from '../src/pages/Login/index'
 import ProBuilder from './components/ProfileBuilder/profile';
+import API from './utils/API';
 
 
 function App() {
   const [Token,setToken] = useState("");
   const [userId,setUserId] = useState(0);
   const [isLoggedIn,setIsLoggedIn] = useState(false);
+  useEffect(()=>{
+    const savedToken = localStorage.getItem("token");
+    console.log(savedToken)
+    if(savedToken){
+      API.isValidToken(savedToken).then(tokenData=>{
+        console.log(tokenData)
+        if(tokenData.isValid){
+          setToken(savedToken);
+          setUserId(tokenData.user.id)
+          setIsLoggedIn(true)
+        } else {
+          localStorage.removeItem("token")
+        }
+      })
+    }
+  },[])
+
+  const logout = ()=>{
+    setToken('');
+    setUserId(0);
+    setIsLoggedIn(false);
+    localStorage.removeItem("token")
+  }
 
   
 
@@ -47,8 +71,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={isLoggedIn}/>}/>
-        <Route path="/profile/:id" element={<h1><Profile/></h1>}/>
-        <Route path="/ProBuilder" element={<h1><ProBuilder/></h1>}/>
+        <Route path="/profile" element={<Profile userId={userId}/>}/>
+        <Route path="/probuilder" element={<ProBuilder userId={userId}/>}/>
         <Route path="*" element={<h1>404 page not found</h1>} />
 
       </Routes>
