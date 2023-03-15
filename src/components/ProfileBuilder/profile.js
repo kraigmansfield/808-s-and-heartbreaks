@@ -87,7 +87,7 @@ export default function ProBuilder({userId}) {
   //       fetch request for adding disliked genres
       
     };
-
+  }
     return (
         <div>
   <div className="container">
@@ -152,3 +152,4 @@ export default function ProBuilder({userId}) {
     </form>
   </div>
 </div>
+    )
