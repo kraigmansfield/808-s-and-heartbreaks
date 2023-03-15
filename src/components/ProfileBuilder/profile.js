@@ -87,6 +87,7 @@ export default function ProBuilder({userId}) {
   //       fetch request for adding disliked genres
       
     };
+}
 
     return (
         <div>
@@ -146,14 +147,18 @@ export default function ProBuilder({userId}) {
           R&B
         </label>
         <label>
-          <input type="checkbox" name="dislikedGenre" id="disliked-Funk" value="Funk" /
+          <input type="checkbox" name="dislikedGenre" id="disliked-Funk" value="Funk" />
           Funk
         </label>
       </div>
+
+  
 
       <button type="submit">Submit</button>
     </form>
   </div>
 
 </div>
+)
+
 
