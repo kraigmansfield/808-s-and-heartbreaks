@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect,} from 'react'
 import {useParams} from 'react-router-dom'
 import HomeContent from '../../components/HomeContent';
 import "./style.css"
@@ -8,6 +8,7 @@ import queryString from 'query-string';
 
 export const Profile = ({userId}) => {
     const [user, setUser] = useState({})
+    const [tracks, setTracks] = useState([])
     useEffect(()=>{
       if (userId !=0) {
 
@@ -16,6 +17,7 @@ export const Profile = ({userId}) => {
           console.log(userId)
           setUser(data)
         })
+
         let parsed = queryString.parse(window.location.search);
         let accessToken = parsed.access_token;
         if (!accessToken)
@@ -23,31 +25,27 @@ export const Profile = ({userId}) => {
         fetch('https://api.spotify.com/v1/me/player/recently-played', {
           headers: {'Authorization': 'Bearer ' + accessToken}
         }).then(response => response.json())
-        .then(data => console.log(data)) 
+        // .then(data => useState({
+        //   user: {
+        //     track: data.track
+        //   },
+        // }))
+        
       }
     }, [userId])
   
       
       
       
-        //   => this.setState({
-        //   user: {
-        //     name: data.display_name
-        //   }
-        // }))
+         
   
     //   fetch('https://api.spotify.com/v1/me/playlists', {
     //     headers: {'Authorization': 'Bearer ' + accessToken}
     //   }).then(response => response.json())
-    //   .then(data => this.setState({
-    //     playlists: data.items.map(item => {
-    //       console.log(data.items)
-    //       return {
-    //         name: item.name,
-    //         imageUrl: item.images[0].url, 
-    //         songs: []
-    //       }
-    //   })
+    //   .then(data => {
+      // console.log
+      //setTrack(data.user.tracks)
+    //}
     // }))
       
 

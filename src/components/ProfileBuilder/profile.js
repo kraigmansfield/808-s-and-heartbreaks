@@ -92,6 +92,7 @@ export default function ProBuilder({userId}) {
         <div>
   <div className="container">
     <form onSubmit={handleSubmit}>
+
     <h2>Please select genres you like!(Select all that apply)</h2>
       <div className="liked-container">
         <label>
@@ -116,9 +117,11 @@ export default function ProBuilder({userId}) {
         </label>
         <label>
           <input type="checkbox" name="likedGenre" id="liked-Funk" value="Funk" />
+
           Funk
         </label>
       </div>
+
 
       <h2>Please select genres you dislike!(Select all that apply)</h2>
       <div className="disliked-container">
@@ -143,7 +146,7 @@ export default function ProBuilder({userId}) {
           R&B
         </label>
         <label>
-          <input type="checkbox" name="dislikedGenre" id="disliked-Funk" value="Funk" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Funk" value="Funk" /
           Funk
         </label>
       </div>
@@ -151,4 +154,6 @@ export default function ProBuilder({userId}) {
       <button type="submit">Submit</button>
     </form>
   </div>
+
 </div>
+
