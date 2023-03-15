@@ -12,25 +12,12 @@ export const Home = (props) => {
             setGenres(data)
         })
     })
-    const [setUsers] = useState([])
-    useEffect(() => {
-      API.getAllData().then(data => {
-          setUsers(data)
-      })
-    })
-
-    
-
 
 
   return (
     <div className='Home'>
       {props.isLoggedIn&&<Profile/>}
         <h1>Find your musical match</h1>
-       
-       
-       
-       
 
 
        {/* TODO: Add last played genre type by user? || title: spotify song/genre, user*/}
@@ -41,47 +28,4 @@ export const Home = (props) => {
   )
 }
 
-function UserList() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    API.getAllData().then(data => {
-      setUsers(data);
-    });
-  }, []);
-
-  return (
-    <div>
-      <h1>User List</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Liked Genres</th>
-            <th>Disliked Genres</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map(user => (
-            <tr key={user.id}>
-              <td>{user.name}</td>
-              <td>{user.likedGenres}</td>
-              <td>{user.dislikedGenres}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-
-
-
-
-
-
-
-
-
-export default [Home, UserList];
+export default Home;
