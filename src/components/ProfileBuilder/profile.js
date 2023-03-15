@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function ProBuilder() {
+export default function ProBuilder({userId}) {
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         // form submission logic here
         //create empty array for liked ids 
@@ -60,25 +60,30 @@ export default function ProBuilder() {
             dislikedids.push(6)
       }
         //fetch request for adding liked genres
-  //       // make the fetch request
-  //   const response = await fetch('/api/likes', {
-  //     method: 'POST',
-  //     headers: {
-  //         'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //         liked: likedids
-  //     })
-  // });
+        // make the fetch request
+    const response = await fetch('/api/users/submit-form', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          likedGenres: likedids,
+          dislikedGenres: dislikedids,
+          userId: userId
 
-  // // handle the response
-  // if (response.ok) {
-  //     // the request was successful
-  //     console.log('Liked genres added successfully');
-  // } else {
-  //     // there was an error
-  //     console.log('Error adding liked genres');
-  // }
+      })
+  });
+
+  // handle the response
+  if (response.ok) {
+    window.location.href="https://accounts.spotify.com/en/authorize?response_type=code&client_id=58c1f7a4b93d4ec4bb374290cccbc543&scope=user-read-private%20user-read-email%20user-read-recently-played&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fapi%2Fspotify%2Fcallback"
+      // the request was successful
+      console.log('Liked genres added successfully');
+      
+  } else {
+      // there was an error
+      console.log('Error adding liked genres');
+  }
   //       fetch request for adding disliked genres
       
     };
@@ -87,58 +92,58 @@ export default function ProBuilder() {
         <div>
   <div className="container">
     <form onSubmit={handleSubmit}>
-    <h2>Please select genres you like!</h2>
+    <h2>Please select genres you like!(Select all that apply)</h2>
       <div className="liked-container">
         <label>
-          <input type="radio" name="likedGenre" id="liked-Pop" value="Pop" />
+          <input type="checkbox" name="likedGenre" id="liked-Pop" value="Pop" />
           Pop
         </label>
         <label>
-          <input type="radio" name="likedGenre" id="liked-Hip-Hop" value="Hip-Hop" />
+          <input type="checkbox" name="likedGenre" id="liked-Hip-Hop" value="Hip-Hop" />
           Hip-Hop
         </label>
         <label>
-          <input type="radio" name="likedGenre" id="liked-Rock" value="Rock" />
+          <input type="checkbox" name="likedGenre" id="liked-Rock" value="Rock" />
           Rock
         </label>
         <label>
-          <input type="radio" name="likedGenre" id="liked-Country" value="Country" />
+          <input type="checkbox" name="likedGenre" id="liked-Country" value="Country" />
           Country
         </label>
         <label>
-          <input type="radio" name="likedGenre" id="liked-R&B" value="R&B" />
+          <input type="checkbox" name="likedGenre" id="liked-R&B" value="R&B" />
           R&B
         </label>
         <label>
-          <input type="radio" name="likedGenre" id="liked-Funk" value="Funk" />
+          <input type="checkbox" name="likedGenre" id="liked-Funk" value="Funk" />
           Funk
         </label>
       </div>
 
-      <h2>Please select genres you dislike!</h2>
+      <h2>Please select genres you dislike!(Select all that apply)</h2>
       <div className="disliked-container">
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-Pop" value="Pop" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Pop" value="Pop" />
           Pop
         </label>
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-Hip-Hop" value="Hip-Hop" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Hip-Hop" value="Hip-Hop" />
           Hip-Hop
         </label>
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-Rock" value="Rock" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Rock" value="Rock" />
           Rock
         </label>
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-Country" value="Country" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Country" value="Country" />
           Country
         </label>
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-R&B" value="R&B" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-R&B" value="R&B" />
           R&B
         </label>
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-Funk" value="Funk" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Funk" value="Funk" />
           Funk
         </label>
       </div>
@@ -147,42 +152,3 @@ export default function ProBuilder() {
     </form>
   </div>
 </div>
-
-        // <div>
-        //     <div classname="container">
-        //         <form onSubmit={handleSubmit}>
-
-        //             <h2>Please select genres you like!</h2>
-        //             <select className="liked-container">
-        //                 <option value="Pop">POP</option>
-        //                 <option value="Hip-Hop">Hip-Hop</option>
-        //                 <option value="Rock">Rock</option>
-        //                 <option value="Country">Country</option>
-        //                 <option value="R&B">R&B</option>
-        //                 <option value="Funk">Funk</option>
-        //             </select>
-
-
-
-        //             <h2>Please select genres you dislike!</h2>
-        //             <radio className="disliked-container">
-        //                 <option value="Pop">POP</option>
-        //                 <option value="Hip-Hop">Hip-Hop</option>
-        //                 <option value="Rock">Rock</option>
-        //                 <option value="Country">Country</option>
-        //                 <option value="R&B">R&B</option>
-        //                 <option value="Funk">Funk</option>
-        //             </radio>
-        //             <button type='submit'>Submit</button>
-        //         </form>
-        //     </div>
-        // </div>
-
-
-    )
-
-}
-
-
-
-
