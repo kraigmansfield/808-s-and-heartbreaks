@@ -1,7 +1,11 @@
 import React, {useState} from 'react'
 import "./style.css"
 import API from "../../utils/API.js";
+import { useNavigate } from 'react-router-dom';
+import App from '../../App';
 import { Link } from "react-router-dom"
+import ProBuilder from "../../components/ProfileBuilder/profile"
+import Profile from "../../components/HomeContent"
 
 
 
@@ -12,9 +16,11 @@ export const Login = () => {
     const [signupUsername,setSignupUsername] = useState("")
     const [signupPassword,setSignupPassword] = useState("")
     const [signupAge,setSignupAge] = useState("")
-    const [setIsLoggedIn] = useState("");
-    const [setToken] = useState("");
-    const [setUserId] = useState("");
+    const [isLoggedIn,setIsLoggedIn] = useState("");
+    const [token,setToken] = useState("");
+    const [userId,setUserId] = useState("");
+    const navigate = useNavigate()
+
 
     const handleInputChange = e => {
         const {name,value} = e.target;
@@ -56,17 +62,19 @@ export const Login = () => {
       }
       API.login(userObj).then(data=>{
         console.log(data);
-        if(data.token){
-        setToken(data.token);
-        setIsLoggedIn(true);
-        setUserId(data.user.id)
+        if(!data.token){
+          setLoginEmail("");
+          setLoginPassword("");
+        } else {
+          setToken(data.token);
+          setIsLoggedIn(true);
+          setUserId(data.user.id)
+          localStorage.setItem("token",data.token)
+          navigate("/profile")
         }
-        setLoginEmail("");
-        setLoginPassword("");
-
       })
     }
-
+    
     const handleSignupSubmit = e => {
       e.preventDefault();
       const userObj = {
@@ -77,16 +85,19 @@ export const Login = () => {
       }
       API.signup(userObj).then(data=>{
         console.log(data);
-        if(data.token){
-        setToken(data.token);
-        setIsLoggedIn(true);
-        setUserId(data.user.id)
+        if(!data.token){
+          setSignupEmail("");
+          setSignupUsername("");
+          setSignupPassword("");
+          setSignupAge("");
+        } else {
+          setToken(data.token);
+          setIsLoggedIn(true);
+          setUserId(data.user.id);
+          localStorage.setItem("token",data.token);
+          navigate("/probuilder")
         }
-        setSignupEmail("");
-        setSignupUsername("");
-        setSignupPassword("");
-        setSignupAge("");
-
+        
       })
     }
   return (
@@ -96,9 +107,9 @@ export const Login = () => {
        <form onSubmit={handleLoginSubmit}>
         <input name="loginEmail" value={loginEmail} onChange={handleInputChange} placeholder="email"/>
         <input name="loginPassword" value={loginPassword} onChange={handleInputChange} placeholder="password" type="password"/>
-        <Link to ="Profile">
-          <button>login</button>
-        </Link>
+       
+          <button type="submit">login</button>
+       
        </form>
     </div>
     <div className= "signUp">
@@ -108,9 +119,7 @@ export const Login = () => {
         <input name="signupUsername" value={signupUsername} onChange={handleInputChange} placeholder="username"/>
         <input name="signupPassword" value={signupPassword} onChange={handleInputChange} placeholder="password" type="password"/>
         <input name="signupAge" value={signupAge} onChange={handleInputChange} placeholder="age"/>
-        <Link to ="/ProBuilder">
-          <button>Submit</button>
-        </Link>
+          <button type="submit" >Submit</button>
        </form>
     </div>
   </div>
