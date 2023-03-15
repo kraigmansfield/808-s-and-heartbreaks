@@ -27,7 +27,7 @@ export default function ProBuilder({userId}) {
             // add pop's id to the array
             likedids.push(4)
         }
-        if (document.querySelector("#liked-R-B").checked){
+        if (document.querySelector("#liked-R&B").checked){
             // add pop's id to the array
             likedids.push(5)
         }
@@ -51,7 +51,7 @@ export default function ProBuilder({userId}) {
             // add pop's id to the array
             dislikedids.push(4)
       }
-      if (document.querySelector("#disliked-R-B").checked){
+      if (document.querySelector("#disliked-R&B").checked){
            // add pop's id to the array
             dislikedids.push(5)
       }
@@ -61,7 +61,7 @@ export default function ProBuilder({userId}) {
       }
         //fetch request for adding liked genres
         // make the fetch request
-    const response = await fetch('http://localhost:3001/api/users/submit-form', {
+    const response = await fetch('/api/users/submit-form', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -92,58 +92,61 @@ export default function ProBuilder({userId}) {
         <div>
   <div className="container">
     <form onSubmit={handleSubmit}>
-    <h2>Please select genres you like!</h2>
+
+    <h2>Please select genres you like!(Select all that apply)</h2>
       <div className="liked-container">
         <label>
-          <input type="radio" name="likedGenre" id="liked-Pop" value="Pop" />
+          <input type="checkbox" name="likedGenre" id="liked-Pop" value="Pop" />
           Pop
         </label>
         <label>
-          <input type="radio" name="likedGenre" id="liked-Hip-Hop" value="Hip-Hop" />
+          <input type="checkbox" name="likedGenre" id="liked-Hip-Hop" value="Hip-Hop" />
           Hip-Hop
         </label>
         <label>
-          <input type="radio" name="likedGenre" id="liked-Rock" value="Rock" />
+          <input type="checkbox" name="likedGenre" id="liked-Rock" value="Rock" />
           Rock
         </label>
         <label>
-          <input type="radio" name="likedGenre" id="liked-Country" value="Country" />
+          <input type="checkbox" name="likedGenre" id="liked-Country" value="Country" />
           Country
         </label>
         <label>
-          <input type="radio" name="likedGenre" id="liked-R-B" value="R&B" />
+          <input type="checkbox" name="likedGenre" id="liked-R&B" value="R&B" />
           R&B
         </label>
         <label>
-          <input type="radio" name="likedGenre" id="liked-Funk" value="Funk" />
+          <input type="checkbox" name="likedGenre" id="liked-Funk" value="Funk" />
+
           Funk
         </label>
       </div>
 
-      <h2>Please select genres you dislike!</h2>
+
+      <h2>Please select genres you dislike!(Select all that apply)</h2>
       <div className="disliked-container">
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-Pop" value="Pop" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Pop" value="Pop" />
           Pop
         </label>
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-Hip-Hop" value="Hip-Hop" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Hip-Hop" value="Hip-Hop" />
           Hip-Hop
         </label>
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-Rock" value="Rock" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Rock" value="Rock" />
           Rock
         </label>
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-Country" value="Country" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Country" value="Country" />
           Country
         </label>
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-R-B" value="R&B" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-R&B" value="R&B" />
           R&B
         </label>
         <label>
-          <input type="radio" name="dislikedGenre" id="disliked-Funk" value="Funk" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-Funk" value="Funk" /
           Funk
         </label>
       </div>
@@ -151,7 +154,6 @@ export default function ProBuilder({userId}) {
       <button type="submit">Submit</button>
     </form>
   </div>
-</div>
-    )
 
-}
+</div>
+

@@ -9,8 +9,10 @@ import API from './utils/API';
 
 
 function App() {
+
   const [Token,setToken] = useState("");
   const [userId,setUserId] = useState(0);
+
   const [isLoggedIn,setIsLoggedIn] = useState(false);
   useEffect(()=>{
     const savedToken = localStorage.getItem("token");
@@ -36,11 +38,7 @@ function App() {
     localStorage.removeItem("token")
   }
 
-  
-
-
-
-  const [city,setCity] = useState('');
+  const [setCity] = useState('');
   React.useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
 
@@ -69,10 +67,12 @@ function App() {
     <Navbar isLoggedIn={isLoggedIn} userId={userId}/>
 
       <Routes>
+
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={isLoggedIn}/>}/>
         <Route path="/profile" element={<Profile userId={userId}/>}/>
         <Route path="/probuilder" element={<ProBuilder userId={userId}/>}/>
+
         <Route path="*" element={<h1>404 page not found</h1>} />
 
       </Routes>
