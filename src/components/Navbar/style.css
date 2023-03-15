@@ -1,11 +1,20 @@
 .Navbar {
     display: flex;
-    background-color: rgba(145, 121, 193, 0.476);
+    background-color: #22223b;
+    border:cadetblue solid 2px;
     justify-content: space-around;
+    
 
 }
 
 .Navbar * {
-    font-size: 2rem;
+    font-size: 25px;
     padding: 20px;
+    color: aliceblue;
+    font-family: 'Shadows Into Light', cursive;
+    text-align: center;
+
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');

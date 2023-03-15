@@ -16,51 +16,70 @@ export default function ProBuilder() {
             likedids.push(1)
         }
         if (document.querySelector("#liked-Hip-Hop").checked){
-          // add pop's id to the array
-          likedids.push(2)
+            // add pop's id to the array
+            likedids.push(2)
         }
         if (document.querySelector("#liked-Rock").checked){
-        // add pop's id to the array
-        likedids.push(3)
+            // add pop's id to the array
+            likedids.push(3)
         }
         if (document.querySelector("#liked-Country").checked){
-        // add pop's id to the array
-        likedids.push(4)
+            // add pop's id to the array
+            likedids.push(4)
         }
         if (document.querySelector("#liked-R&B").checked){
-        // add pop's id to the array
-        likedids.push(5)
+            // add pop's id to the array
+            likedids.push(5)
         }
         if (document.querySelector("#liked-Funk").checked){
-        // add pop's id to the array
-        likedids.push(6)
+            // add pop's id to the array
+            likedids.push(6)
         }
         if (document.querySelector("#disliked-Pop").checked){
-          // add pop's id to the array
-          likedids.push(1)
+            // add pop's id to the array
+            dislikedids.push(1)
       }
       if (document.querySelector("#disliked-Hip-Hop").checked){
-        // add pop's id to the array
-        likedids.push(2)
+            // add pop's id to the array
+            dislikedids.push(2)
       }
       if (document.querySelector("#disliked-Rock").checked){
-      // add pop's id to the array
-      likedids.push(3)
+            // add pop's id to the array
+            dislikedids.push(3)
       }
       if (document.querySelector("#disliked-Country").checked){
-      // add pop's id to the array
-      likedids.push(4)
+            // add pop's id to the array
+            dislikedids.push(4)
       }
       if (document.querySelector("#disliked-R&B").checked){
-      // add pop's id to the array
-      likedids.push(5)
+           // add pop's id to the array
+            dislikedids.push(5)
       }
       if (document.querySelector("#disliked-Funk").checked){
-      // add pop's id to the array
-      likedids.push(6)
+           // add pop's id to the array
+            dislikedids.push(6)
       }
         //fetch request for adding liked genres
-        //fetch request for adding disliked genres
+  //       // make the fetch request
+  //   const response = await fetch('/api/likes', {
+  //     method: 'POST',
+  //     headers: {
+  //         'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //         liked: likedids
+  //     })
+  // });
+
+  // // handle the response
+  // if (response.ok) {
+  //     // the request was successful
+  //     console.log('Liked genres added successfully');
+  // } else {
+  //     // there was an error
+  //     console.log('Error adding liked genres');
+  // }
+  //       fetch request for adding disliked genres
       
     };
 
@@ -163,5 +182,7 @@ export default function ProBuilder() {
     )
 
 }
+
+
 
 
