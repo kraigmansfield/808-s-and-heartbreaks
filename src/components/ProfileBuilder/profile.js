@@ -27,7 +27,7 @@ export default function ProBuilder({userId}) {
             // add pop's id to the array
             likedids.push(4)
         }
-        if (document.querySelector("#liked-R&B").checked){
+        if (document.querySelector("#liked-R-B").checked){
             // add pop's id to the array
             likedids.push(5)
         }
@@ -51,7 +51,7 @@ export default function ProBuilder({userId}) {
             // add pop's id to the array
             dislikedids.push(4)
       }
-      if (document.querySelector("#disliked-R&B").checked){
+      if (document.querySelector("#disliked-R-B").checked){
            // add pop's id to the array
             dislikedids.push(5)
       }
@@ -61,7 +61,8 @@ export default function ProBuilder({userId}) {
       }
         //fetch request for adding liked genres
         // make the fetch request
-    const response = await fetch('/api/users/submit-form', {
+    const response = await fetch('http://localhost:3001/api/users/submit-form', {
+
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -69,10 +70,10 @@ export default function ProBuilder({userId}) {
       body: JSON.stringify({
           likedGenres: likedids,
           dislikedGenres: dislikedids,
-          userId: userId
-
-      })
-  });
+          userId: userId,
+        })
+      });
+      console.log(response)
 
   // handle the response
   if (response.ok) {
@@ -113,7 +114,7 @@ export default function ProBuilder({userId}) {
           Country
         </label>
         <label>
-          <input type="checkbox" name="likedGenre" id="liked-R&B" value="R&B" />
+          <input type="checkbox" name="likedGenre" id="liked-R-B" value="R-B" />
           R&B
         </label>
         <label>
@@ -143,7 +144,7 @@ export default function ProBuilder({userId}) {
           Country
         </label>
         <label>
-          <input type="checkbox" name="dislikedGenre" id="disliked-R&B" value="R&B" />
+          <input type="checkbox" name="dislikedGenre" id="disliked-R-B" value="R-B" />
           R&B
         </label>
         <label>
